@@ -5,8 +5,10 @@
     overflow: scroll;
     font-weight: bold;
     font-size: 1.2rem;
+    text-align: center;
     /**box-shadow: 0 2px 2px 5px #3e3e3e ;**/
 }
+
 
 @media(min-width:1000px) and (min-height:700px){
    .Burger{

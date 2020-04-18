@@ -1,0 +1,39 @@
+.Grid{
+    display: grid;
+    grid-template-areas: "summary summary" 
+                    " success danger";
+    align-content: center;
+    justify-content: center;
+    }
+
+.Button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.Summary{
+grid-area: summary;    
+}
+
+
+.Success {
+    color: #5C9210;
+    grid-area: success;
+    box-shadow: 2px 2px 5px rgba(92, 146, 16, 1);
+
+}
+
+.Danger {
+    color: #994619;
+    grid-area: danger;
+    background-color: #e4773d5e;
+
+}
+
