@@ -11,8 +11,6 @@ const toolbar=(props )=>{
             <Logo top={"0"}></Logo>
             <nav
             className={styles.DesktopOnly}><NavigationItems/></nav>
-            
-
         </header>
     )
 };

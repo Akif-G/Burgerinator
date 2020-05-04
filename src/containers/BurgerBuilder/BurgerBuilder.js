@@ -3,7 +3,6 @@ import Burger from '../../components/Burger/Burger'
 import Builder from "../../components/Burger/Builder/Builder";
 import Modal from '../../components/UI/Modal/Modal'
 import axios from '../../axios-orders'
-import uuidv4 from 'uuid/v4';
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import Spinner from "../../components/UI/Spinner/Spinner";
 
@@ -84,9 +83,11 @@ class BurgerBuilder extends Component {
 
     PurchaseTakeBack = () => {
         this.setState({ purchasing: false })
+
     }
 
     purchaseContinue = () => {
+        /*
         //alert('You Purchased');
         this.setState({ loading: true });
         const order = {
@@ -97,6 +98,19 @@ class BurgerBuilder extends Component {
         axios.post('/orders.json', order)
             .then(res => { this.setState({ loading: false, purchasing: false }) })
             .catch(err => { this.setState({ loading: false, purchasing: false }) });
+        */
+       this.setState({ loading: true });
+       const queryParams=[];
+       for (let i in this.state.ingredients){
+           queryParams.push(encodeURIComponent(i)+"="+encodeURIComponent(this.state.ingredients[i]));
+       }
+
+       queryParams.push('price='+this.state.price)
+       const queryString=queryParams.join('&')
+        this.props.history.push({
+            pathname:"/checkout",
+            search:'?'+queryString
+        });
     }
 
     render() {
