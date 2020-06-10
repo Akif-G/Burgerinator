@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import buttonstyle from "../../../components/Burger/Ingredient.js/OrderSummary/OrderSummary.css"
 import uuidv4 from 'uuid/v4';
-import axios from '../../../axios-orders'
 import styles from "./ContactData.css"
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
 import { connect } from "react-redux";
-
+import * as actions from '../../../store/actions/index'
 
 const ID = uuidv4()
 
@@ -85,7 +84,6 @@ class ContactData extends Component {
                 touched:false,
             },
         },
-        loading:false,
         validity:false,
     }
 
@@ -100,7 +98,6 @@ class ContactData extends Component {
     orderHandler = (event) => {
         //it is importante since forms are sending request and reloads page
         event.preventDefault();
-        this.setState({ loading: true });
         const formData={};
         for(let element in this.state.orderForm){
             formData[element]=this.state.orderForm[element].value;
@@ -111,15 +108,8 @@ class ContactData extends Component {
             customerID: ID, 
             order:formData,
         };
-        axios.post('/orders.json', order)
-            .then(res => {
-                console.log(res)
-                this.setState({ loading: false, })
-                this.props.history.push('/')
-            })
-            .catch(err => { this.setState({ loading: false, }) });
-        console.log(this.state.validity)
-
+        //CALL TO REDUX dispatched event
+        this.props.onOrderBurger(order);
     }
     InputChanged = (event,inputIdentifier) => {
         //console.log(event.target.value);
@@ -169,7 +159,7 @@ class ContactData extends Component {
             </form>
         );
 
-        if (this.state.loading) form = <Spinner></Spinner>
+        if (this.props.loading) form = <Spinner></Spinner>
         return (
             <div className={styles.ContactData}>
                 <h4>Enter Contact Data</h4>
@@ -181,9 +171,17 @@ class ContactData extends Component {
 
 const mapStateToProps = (state) => {
     return{
-        ingredients: state.ingredients,
-        price:state.price,
+        ingredients: state.burgerBuilder.ingredients,
+        price:state.burgerBuilder.price,
+        loading:state.order.loading,
     };
 };
 
-export default connect(mapStateToProps)( ContactData);
+const mapDispatchToProps=dispatch=>{
+    return{
+        onOrderBurger:(orderData)=>dispatch(actions.purchaseBurger(orderData))
+    };
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)( ContactData);
