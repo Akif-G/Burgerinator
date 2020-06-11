@@ -1,4 +1,5 @@
 import * as actions from '../actions/actions'
+import { updateObject } from '../utility'
 
 
 const PRICES = {
@@ -17,35 +18,30 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actions.ADD_INGREDIENT:
-            return {
-                ...state,
-                ingredients:{
-                    ...state.ingredients,
-                    [action.ingredientName]:state.ingredients[action.ingredientName]+1,
-                },
+            const updatedIngredient={[action.ingredientName]:state.ingredients[action.ingredientName]+1,}
+            const updatedIngredients=updateObject(state.ingredients,updatedIngredient);
+            const updatedState={
+                ingredients:updatedIngredients,
                 price: state.price+PRICES[action.ingredientName]
-            };
+            }
+            return updateObject(state,updatedState);
 
         case actions.REMOVE_INGREDIENT:
             if(state.ingredients[action.ingredientName]>0){
-            return {
-                ...state,
-                ingredients:{
-                    ...state.ingredients,
-                    [action.ingredientName]:state.ingredients[action.ingredientName]-1,
-                },
+            const updated={[action.ingredientName]:state.ingredients[action.ingredientName]-1,}
+            const updateds=updateObject(state.ingredients,updated);
+            const updatedSTATE={
+                ingredients:updateds,
                 price: state.price-PRICES[action.ingredientName]
-            };
+            }
+            return updateObject(state,updatedSTATE);
         }
         else{
             return state;
         }
         case actions.SET_INGREDIENTS:
-            return{
-                ...state,
-                ingredients:action.ingredients,
-                price:4,
-            }
+            const newIng={ingredients:action.ingredients,price:4};
+            return updateObject(state,newIng);
         default:
             return state;
     };

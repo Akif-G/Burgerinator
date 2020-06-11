@@ -1,0 +1,53 @@
+[33mcommit 11ac86318748f8545555643ef23ea42a6895a1b9[m[33m ([m[1;36mHEAD -> [m[1;32mUDEMY[m[33m)[m
+Author: Akif Gultekin <mehmetgultekin@sabanciuniv.edu>
+Date:   Thu Jun 11 02:41:23 2020 +0300
+
+    redux advanced
+
+[33mcommit 3fea5acf01223af9c1154d819a4401b039ef2bf6[m
+Author: Akif Gultekin <mehmetgultekin@sabanciuniv.edu>
+Date:   Tue Jun 9 19:56:18 2020 +0300
+
+    redux added.
+
+[33mcommit 11ae0a4e16d7094832b24a7a5bfca70b1bd6b6eb[m
+Author: Akif Gultekin <mehmetgultekin@sabanciuniv.edu>
+Date:   Sat May 9 11:34:42 2020 +0300
+
+    form related part added
+
+[33mcommit d9fc6abf5116f8932ce2160a02782aebc5a48152[m
+Author: Akif Gultekin <mehmetgultekin@sabanciuniv.edu>
+Date:   Mon May 4 04:59:15 2020 +0300
+
+    routing finished
+
+[33mcommit 3ca0f3b9c8982876a56a48c7419086f30aa146c2[m
+Author: Akif Gultekin <mehmetgultekin@sabanciuniv.edu>
+Date:   Mon Apr 27 05:49:44 2020 +0300
+
+    added backend functionality
+
+[33mcommit 874fda92a30b91f4d04a91b54f6b71fa57d8e3e0[m
+Author: Akif Gultekin <mehmetgultekin@sabanciuniv.edu>
+Date:   Sat Apr 18 16:03:41 2020 +0300
+
+    fin.
+
+[33mcommit 1ebdb2fa1acc018b89fd0af1a084133a95223c4f[m
+Author: Akif Gultekin <mehmetgultekin@sabanciuniv.edu>
+Date:   Thu Apr 16 04:28:32 2020 +0300
+
+    i am going to try make the burger dynamic
+
+[33mcommit b5b852ae96dca9f32b9398f6a3a9645c6e0f2c82[m
+Author: Akif Gultekin <mehmetgultekin@sabanciuniv.edu>
+Date:   Wed Apr 15 18:54:28 2020 +0300
+
+    EJECTED and Setup is okay.
+
+[33mcommit e6a677319d5c850f68589a00535c8d16a4dbd93b[m
+Author: Akif Gultekin <mehmetgultekin@sabanciuniv.edu>
+Date:   Wed Apr 15 18:41:47 2020 +0300
+
+    commit before ejecting
