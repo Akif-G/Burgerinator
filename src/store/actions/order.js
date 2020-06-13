@@ -87,8 +87,6 @@ export const fetchOrders = (token,userId) => {
                 }
                 dispatch(fetchOrdersSuccess(fetchedOrders))
             })
-
-            .then(() => console.log(this.state.orders))
             .catch(err => {
                 dispatch(fetchOrdersFail(err))
             })

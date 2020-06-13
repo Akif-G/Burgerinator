@@ -8,6 +8,7 @@ import Logout from './containers/Auth/Logout/Logout';
 import { connect } from 'react-redux';
 import { authCheckState } from './store/actions';
 import asyncComponent from './hoc/asyncComponent/asyncComponent';
+import Social from './components/UI/Social/Social';
 
 const asyncCheckout =asyncComponent(()=>{
   return import('./containers/checkout/checkout')
@@ -50,6 +51,7 @@ class App extends Component {
       <div>
         <Layout>
           {routes}
+          <Social></Social>
         </Layout>
       </div>
     );

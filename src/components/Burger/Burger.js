@@ -3,6 +3,7 @@ import styles from './Burger.css'
 import Ingredient from "./Ingredient.js/Ingredient";
 
 const burger =(props)=>{
+    console.log(props)
     let meta=Object.keys(props.ingredients)
         .map(igKey=>{
             return [...Array(props.ingredients[igKey])].map((_,i)=>{

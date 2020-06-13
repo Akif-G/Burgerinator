@@ -10,14 +10,14 @@ const CheckoutSummary = (props) => {
             <div style={{ width: '100%', margin: 'auto' }}>
                 <Burger ingredients={props.ingredients} />
             </div>
-            <button className={[buttonstyle.Button, buttonstyle.Success].join(' ')}
-            onClick={props.CheckoutContinued} 
-            >Continue</button>
-
-            <button className={[buttonstyle.Button, buttonstyle.Danger]
-            .join(' ')}
-            onClick={props.CheckoutCancelled} 
-            >Cancel</button>
+            <div>
+                <button className={[buttonstyle.Button, buttonstyle.Success].join(' ')}
+                    onClick={props.CheckoutContinued}
+                >Continue</button>
+                <button className={[buttonstyle.Button, buttonstyle.Danger].join(' ')}
+                    onClick={props.CheckoutCancelled}
+                >Cancel</button>
+            </div>
         </div>
     )
 
