@@ -4,6 +4,7 @@ import axios from "../../axios-orders";
 import { connect } from "react-redux";
 import * as actions from '../../store/actions/index'
 import Spinner from "../../components/UI/Spinner/Spinner";
+import styles from "./Orders.css"
 
 class Orders extends Component {
 
@@ -12,9 +13,10 @@ class Orders extends Component {
     }
     render() {
         let loading = <Spinner />;
-        if (!this.props.loading) loading = <div>
+        if (!this.props.loading) loading = <div className={styles.Orders}>
             {this.props.orders.map(order => (
-                <Order key={order.id}
+                <Order key={order.id} 
+                className={styles.Order}
                     ingredients={order.ingredients}
                     price={order.price}
                 />

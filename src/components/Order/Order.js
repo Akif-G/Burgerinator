@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Order.css'
-
+import Burger from '../Burger/Burger.js'
 const order=(props)=>{
     const ingredients=[];
     for (let ingredientName in props.ingredients){
@@ -18,7 +18,6 @@ const order=(props)=>{
         padding:'5px'}}
         key={ig.name}>{ig.name} : {ig.amount}</span>)
     })
-    console.log(props.ingredients)
     return(
     <div className={styles.Order}> 
         <div>
@@ -26,6 +25,7 @@ const order=(props)=>{
         {ingredientOutput}
         </div>
         <p>Price: <strong>{Number.parseFloat(props.price).toFixed(2)}</strong></p>
+        <Burger className={styles.Burger} ingredients={props.ingredients}/>
     </div>
     )
 }
