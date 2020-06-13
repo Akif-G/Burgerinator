@@ -5,6 +5,7 @@ import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import { Redirect } from 'react-router-dom';
+import {checkValidity} from '../../store/utility'
 class Auth extends Component {
     //do not use redux: info dont get out to app for security...
     state = {
@@ -40,13 +41,7 @@ class Auth extends Component {
         validity: false,
         isSignin: true,
     }
-    checkValidity = (value, rules) => {
-        let isValid = true;
-        if (rules.required) {
-            isValid = value.trim() !== '' && isValid;
-        }
-        return isValid;
-    };
+
 
     InputChanged = (event, inputIdentifier) => {
         const updatedForm =
@@ -55,7 +50,7 @@ class Auth extends Component {
             { ...updatedForm[inputIdentifier] }
         updatedElement.value = event.target.value;
         updatedElement.touched = true;
-        updatedElement.validity = this.checkValidity(updatedElement.value, updatedElement.validation)
+        updatedElement.validity = checkValidity(updatedElement.value, updatedElement.validation)
         updatedForm[inputIdentifier] = updatedElement;
         let formIsValid = true;
         for (let input in updatedForm) {

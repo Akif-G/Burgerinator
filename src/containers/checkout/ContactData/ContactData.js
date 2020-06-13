@@ -5,6 +5,7 @@ import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
 import { connect } from "react-redux";
 import * as actions from '../../../store/actions/index'
+import { checkValidity } from "../../../store/utility";
 
 
 class ContactData extends Component {
@@ -85,14 +86,6 @@ class ContactData extends Component {
         validity:false,
     }
 
-    checkValidity=(value,rules)=>{
-        let isValid=true;
-        if (rules.required){
-            isValid=value.trim()!=='' && isValid;
-        }
-        return isValid;
-    };
-
     orderHandler = (event) => {
         //it is importante since forms are sending request and reloads page
         event.preventDefault();
@@ -117,7 +110,7 @@ class ContactData extends Component {
             {...updatedForm[inputIdentifier]}
         updatedElement.value=event.target.value;
         updatedElement.touched=true;
-        updatedElement.validity=this.checkValidity(updatedElement.value,updatedElement.validation)
+        updatedElement.validity=checkValidity(updatedElement.value,updatedElement.validation)
         updatedForm[inputIdentifier]=updatedElement;
         let formIsValid=true;
         for (let input in updatedForm){
