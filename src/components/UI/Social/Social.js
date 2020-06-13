@@ -4,7 +4,7 @@ import styles from './Social.css'
 const Social = () => {
     return (
         <Fragment>
-            <a className={styles.Github} ></a>
+            <a className={styles.Github} href="https://github.com/Akif-G/Burgerinator"></a>
         </Fragment>
     )
 }
