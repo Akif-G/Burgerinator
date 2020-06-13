@@ -63,7 +63,7 @@
     .NavigationItem a.active{
 
     background-color: #df6057;
-    border-bottom: 4px solid  #40a4c8;
+    border-bottom: 3px solid  #40a4c8;
     color:white;
     }
 }

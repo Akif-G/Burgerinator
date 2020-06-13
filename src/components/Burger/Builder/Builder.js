@@ -13,7 +13,6 @@ const controls=[
 const builder = (props) => {
     return(
         <div className={styles.Builder}>
-            <h1>price: {props.price.toFixed(2)}</h1>
             {controls.map(ctrl=>(
                 <Control
                     key={ctrl.label} label={ctrl.label}
@@ -23,6 +22,7 @@ const builder = (props) => {
                 ))
                 
             }
+            <h1>price: {props.price.toFixed(2)}</h1>
            <button className={styles.OrderButton} 
            onClick={props.purchased}
            disabled={!props.purchaseable}

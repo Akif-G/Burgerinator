@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import Spinner from '../../components/UI/Spinner/Spinner'
 import { Redirect } from 'react-router-dom';
 import {checkValidity} from '../../store/utility'
+import Logo from '../../components/Logo/Logo';
 class Auth extends Component {
     //do not use redux: info dont get out to app for security...
     state = {
@@ -108,8 +109,8 @@ class Auth extends Component {
             AuthRedirect= <Redirect to ="/"/>
         };
         return (
-            <div style={{display:"flex",flexDirection:"column",  alignItems: "center", borderLeft:"20px solid #555",backgroundColor:"#eee"}}>
-                <form onSubmit={this.submitHandler}>
+            <div style={{display:"flex",flexDirection:"column",  alignItems: "center", borderLeft:"20px solid #555",backgroundColor:"#eeeeee8f"}}>
+            <Logo onClick={()=>{}} top={"0"}/>                     <form onSubmit={this.submitHandler}>
                     {Form}
                     <button className={
                         [buttonstyle.Button, disability].join(' ')

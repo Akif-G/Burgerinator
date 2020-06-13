@@ -3,7 +3,7 @@ import CheckoutSummary from "../../components/Order/CheckoutSummary/CheckoutSumm
 import ingredient from "../../components/Burger/Ingredient.js/Ingredient";
 import { Route, Redirect } from 'react-router-dom'
 import ContactData from "./ContactData/ContactData";
-
+import styles from "./checkout.css"
 import { connect } from 'react-redux'
 import * as actions from '../../store/actions/index'
 
@@ -22,21 +22,21 @@ class Checkout extends Component {
         let summary = <Redirect to="/" />;
         if (this.props.ings && !this.props.purchased)
             summary =
-                <div>
+                <div className={styles.Checkout}>
                     <CheckoutSummary ingredients={this.props.ings}
                         CheckoutCancelled={this.CheckoutCancelledHandler}
                         CheckoutContinued={this.CheckoutContinuedHandler}
                     />
                     <Route path={this.props.match.path + '/contact-data'} component={ContactData} />
-            </div>
-        return summary ;
-        };
+                </div>
+        return summary;
+    };
 }
 
 const mapStateToProps = (state) => {
     return {
         ings: state.burgerBuilder.ingredients,
-        purchased:state.order.purchased,
+        purchased: state.order.purchased,
     };
 };
 
