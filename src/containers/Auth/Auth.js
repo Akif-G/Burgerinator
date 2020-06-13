@@ -7,6 +7,7 @@ import Spinner from '../../components/UI/Spinner/Spinner'
 import { Redirect } from 'react-router-dom';
 import {checkValidity} from '../../store/utility'
 import Logo from '../../components/Logo/Logo';
+import styles from './Auth.css'
 class Auth extends Component {
     //do not use redux: info dont get out to app for security...
     state = {
@@ -79,6 +80,7 @@ class Auth extends Component {
             })
         };
         let Form = formElementsArray.map(formElement =>
+            <div className={styles.Former}>
             <Input
                 key={formElement.id}
                 elementType={formElement.config.elementType} elementConfig={formElement.config.elementConfig}
@@ -88,6 +90,7 @@ class Auth extends Component {
                 shouldValid={formElement.config.validation}
                 touched={formElement.config.touched}
             />
+            </div>
         );
         let disability = buttonstyle.Success
         if (!this.state.validity) {
@@ -109,10 +112,12 @@ class Auth extends Component {
             AuthRedirect= <Redirect to ="/"/>
         };
         return (
-            <div style={{display:"flex",flexDirection:"column",  alignItems: "center", borderLeft:"20px solid #555",backgroundColor:"#eeeeee8f"}}>
-            <Logo onClick={()=>{}} top={"0"}/>                     <form onSubmit={this.submitHandler}>
+            <div className={styles.Auth}>
+            <Logo onClick={()=>{}} top={"0"}/>                     
+            <form onSubmit={this.submitHandler} className={styles.Form}>
+           
                     {Form}
-                    <button className={
+                       <button className={
                         [buttonstyle.Button, disability].join(' ')
                     }
                         disabled={!this.state.validity}
@@ -120,7 +125,8 @@ class Auth extends Component {
                     {errorMessage}
                 </form>
                     <button style={{
-                        color: "white",
+                        color: "whitesmoke",
+                        borderRadius:"2%",
                         backgroundColor: "#555",
                         border: "none",
                         padding: 0,

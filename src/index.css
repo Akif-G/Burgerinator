@@ -4,4 +4,5 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   background-image: url("./outline.png");
+  background-attachment: fixed;
 }
