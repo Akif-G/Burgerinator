@@ -15,9 +15,9 @@ const sideDrawer=(props)=>{
     return(
         <Fragment>
         <BackDrop show={props.open} takeBack={props.closed}/>
-        <div className={attachedClasses.join(' ')}>
+        <div className={attachedClasses.join(' ')} onClick={props.closed}>
             <nav >
-                <NavigationItems isAuth={props.isAuth} />
+            <Logo onClick={props.SideDrawerOpened} top={"0"} left={"0%"}/>                <NavigationItems  flexFlow={"column"} isAuth={props.isAuth} />
             </nav>
         </div>
         </Fragment>

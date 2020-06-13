@@ -7,8 +7,8 @@ import NavigationItems from '../NavigationItems/NavigationItems';
 const toolbar=(props )=>{
     return(
         <header className={styles.Toolbar}>
-            <div onClick={props.SideDrawerOpened}>MENU</div>
-            <Logo top={"0"} right={"50%"}></Logo>
+            <div className={styles.Menu} onClick={props.SideDrawerOpened}>MENU</div>
+            <Logo  top={"0"} left={"0%"}></Logo>
             <nav
             className={styles.DesktopOnly}><NavigationItems isAuth={props.isAuth}/></nav>
         </header>
