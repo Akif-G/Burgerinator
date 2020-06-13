@@ -3,12 +3,9 @@ import NavigationItem from './NavigationItem/NavigationItem';
 import styles from './NavigationItems.css'
 const navigationItems=(props)=>(
     <ul className={styles.NavigationItems}>
-        <NavigationItem 
-        link="/"
-        >Burger Builder</NavigationItem>
-        <NavigationItem
-        link="/orders"
-        >Orders</NavigationItem>
+        {!props.isAuth? <NavigationItem link="/auth" >Log in</NavigationItem> : <NavigationItem link="/logout" >Log Out</NavigationItem>}
+        <NavigationItem link="/">Burger Builder</NavigationItem>
+        {props.isAuth? <NavigationItem link="/orders">Orders</NavigationItem>:null}
     </ul>
 )
 

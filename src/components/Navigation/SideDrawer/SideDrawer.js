@@ -17,8 +17,7 @@ const sideDrawer=(props)=>{
         <BackDrop show={props.open} takeBack={props.closed}/>
         <div className={attachedClasses.join(' ')}>
             <nav >
-            <Logo top={"20%"} height={"5%"}></Logo>
-                <NavigationItems/>
+                <NavigationItems isAuth={props.isAuth} />
             </nav>
         </div>
         </Fragment>

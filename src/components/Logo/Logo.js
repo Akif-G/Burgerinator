@@ -5,7 +5,7 @@ import { checkPropTypes } from 'prop-types';
 
 const logo=(props)=>(
     <div>
-        <img className={styles.Logo} src={burgerLogo} style={{height:props.height,top:props.top,left:props.left}}
+        <img className={styles.Logo} src={burgerLogo} style={{height:props.height,top:props.top,right:props.right}}
          alt="Burger Builder!"/>
     </div>
 )

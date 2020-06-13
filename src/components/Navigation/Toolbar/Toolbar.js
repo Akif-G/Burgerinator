@@ -8,9 +8,9 @@ const toolbar=(props )=>{
     return(
         <header className={styles.Toolbar}>
             <div onClick={props.SideDrawerOpened}>MENU</div>
-            <Logo top={"0"}></Logo>
+            <Logo top={"0"} right={"50%"}></Logo>
             <nav
-            className={styles.DesktopOnly}><NavigationItems/></nav>
+            className={styles.DesktopOnly}><NavigationItems isAuth={props.isAuth}/></nav>
         </header>
     )
 };

@@ -13,7 +13,7 @@ const burger =(props)=>{
 
 
     if(meta.length===0){
-        meta=<div className={styles.P}>please start adding ingridients</div>
+        meta=<div className={styles.P}>please start adding ingredients</div>
     }
         return(
         <div className={styles.Burger}>

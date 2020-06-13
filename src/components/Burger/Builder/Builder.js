@@ -26,7 +26,7 @@ const builder = (props) => {
            <button className={styles.OrderButton} 
            onClick={props.purchased}
            disabled={!props.purchaseable}
-           >Purchase</button> 
+           >{props.isAuth?"Purchase":"Sign In and Continue!"}</button> 
         </div>
     )
 }

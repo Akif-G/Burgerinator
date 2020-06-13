@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import buttonstyle from "../../../components/Burger/Ingredient.js/OrderSummary/OrderSummary.css"
-import uuidv4 from 'uuid/v4';
 import styles from "./ContactData.css"
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import Input from "../../../components/UI/Input/Input";
 import { connect } from "react-redux";
 import * as actions from '../../../store/actions/index'
 
-const ID = uuidv4()
 
 class ContactData extends Component {
     state = {
@@ -105,11 +103,11 @@ class ContactData extends Component {
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-            customerID: ID, 
             order:formData,
+            userId:this.props.userId
         };
         //CALL TO REDUX dispatched event
-        this.props.onOrderBurger(order);
+        this.props.onOrderBurger(order,this.props.token);
     }
     InputChanged = (event,inputIdentifier) => {
         //console.log(event.target.value);
@@ -135,6 +133,10 @@ class ContactData extends Component {
                 config:this.state.orderForm[key]
             })
         }
+        let disablitiy=buttonstyle.Success
+        if(!this.state.validity){
+            disablitiy=  buttonstyle.Danger
+        }
         let form = (
             <form onSubmit={this.orderHandler}>
                 {formElementsArray.map(formElement=>(
@@ -150,10 +152,9 @@ class ContactData extends Component {
                 ))}
 
                 <button className={
-                    [buttonstyle.Button, buttonstyle.Success].join(' ')
+                    [buttonstyle.Button, disablitiy].join(' ')
                     
                     }
-                    //onClick={this.orderHandler}
                     disabled={!this.state.validity}
                 >Order</button>
             </form>
@@ -174,12 +175,14 @@ const mapStateToProps = (state) => {
         ingredients: state.burgerBuilder.ingredients,
         price:state.burgerBuilder.price,
         loading:state.order.loading,
+        token:state.auth.token,
+        userId:state.auth.userId,
     };
 };
 
 const mapDispatchToProps=dispatch=>{
     return{
-        onOrderBurger:(orderData)=>dispatch(actions.purchaseBurger(orderData))
+        onOrderBurger:(orderData,TOKEN)=>dispatch(actions.purchaseBurger(orderData,TOKEN))
     };
 }
 

@@ -14,7 +14,7 @@ export const orderReducer = (state = InitialState, action) => {
 
         case actions.PURCHASE_START:
             const updateds={loading: true,purchased: false,}
-            return updateObject(state,updatedPurchased);
+            return updateObject(state,updateds);
 
         case actions.PURCHASE_SUCCESS:
             const newOrder = updateObject(action.orderData, {id: action.orderId})

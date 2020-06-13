@@ -13,35 +13,41 @@ const PRICES = {
 const initialState = {
     ingredients: null,
     price: 4,
+    isOrdered: false,
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actions.ADD_INGREDIENT:
-            const updatedIngredient={[action.ingredientName]:state.ingredients[action.ingredientName]+1,}
-            const updatedIngredients=updateObject(state.ingredients,updatedIngredient);
-            const updatedState={
-                ingredients:updatedIngredients,
-                price: state.price+PRICES[action.ingredientName]
+            const updatedIngredient = { [action.ingredientName]: state.ingredients[action.ingredientName] + 1, }
+            const updatedIngredients = updateObject(state.ingredients, updatedIngredient);
+            const updatedState = {
+                ingredients: updatedIngredients,
+                price: state.price + PRICES[action.ingredientName]
             }
-            return updateObject(state,updatedState);
+            return updateObject(state, updatedState);
 
         case actions.REMOVE_INGREDIENT:
-            if(state.ingredients[action.ingredientName]>0){
-            const updated={[action.ingredientName]:state.ingredients[action.ingredientName]-1,}
-            const updateds=updateObject(state.ingredients,updated);
-            const updatedSTATE={
-                ingredients:updateds,
-                price: state.price-PRICES[action.ingredientName]
+            if (state.ingredients[action.ingredientName] > 0) {
+                const updated = { [action.ingredientName]: state.ingredients[action.ingredientName] - 1, }
+                const updateds = updateObject(state.ingredients, updated);
+                const updatedSTATE = {
+                    ingredients: updateds,
+                    price: state.price - PRICES[action.ingredientName]
+                }
+                return updateObject(state, updatedSTATE);
             }
-            return updateObject(state,updatedSTATE);
-        }
-        else{
-            return state;
-        }
+            else {
+                return state;
+            }
         case actions.SET_INGREDIENTS:
-            const newIng={ingredients:action.ingredients,price:4};
-            return updateObject(state,newIng);
+            const newIng = { ingredients: action.ingredients, price: 4, isOrdered: false };
+            return updateObject(state, newIng);
+
+        case actions.ORDER_INIT:
+            const updateds2 = { isOrdered: true, }
+            return updateObject(state, updateds2);
+
         default:
             return state;
     };
