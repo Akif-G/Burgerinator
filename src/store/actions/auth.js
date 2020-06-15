@@ -1,6 +1,6 @@
 import * as actions from "./actions"
 import Axios from "axios";
-import {config} from "../../../config"
+import {config} from "../../config"
 
 export const authStart = () => {
     return {
